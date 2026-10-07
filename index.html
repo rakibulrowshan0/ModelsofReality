@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>REALITY / DECOMPRESSED — A Cognitive History of Civilization</title>
+<meta name="description" content="An interactive cinematic research experience about reality models, civilizational cognition, power, digitalization and AI.">
+<style>
+:root{
+  --bg:#07090d;--panel:#0d1118;--panel2:#111824;--text:#eef2f6;--muted:#8f9aaa;
+  --line:#26303d;--accent:#8fe3c1;--accent2:#8ca8ff;--warm:#f1b47b;
+  --max:1200px;--serif:Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 50% 0,#182132 0,#07090d 34rem);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;z-index:-1}
+a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 36px),var(--max));margin:auto}
+nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(16px);background:rgba(7,9,13,.78);border-bottom:1px solid rgba(255,255,255,.06)}
+.navin{height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-size:13px;letter-spacing:.18em;font-weight:700}.navlinks{display:flex;gap:18px;color:var(--muted);font-size:12px}.navlinks a:hover{color:var(--text)}
+.hero{min-height:88vh;display:grid;align-items:center;position:relative;overflow:hidden}
+.orbit,.orbit2{position:absolute;border:1px solid rgba(143,227,193,.18);border-radius:50%;width:520px;height:520px;left:50%;top:50%;transform:translate(-50%,-50%);animation:spin 32s linear infinite}
+.orbit2{width:760px;height:760px;border-color:rgba(140,168,255,.11);animation-direction:reverse;animation-duration:48s}
+.orbit:after,.orbit2:after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:var(--accent);top:20%;left:7%;box-shadow:0 0 28px var(--accent)}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.kicker{color:var(--accent);font-size:12px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:22px}
+h1{font:clamp(54px,9vw,132px)/.86 var(--serif);letter-spacing:-.06em;margin:0;max-width:900px}
+.hero p{max-width:700px;color:#b9c2ce;font-size:clamp(17px,2vw,23px);margin:28px 0}.hero strong{color:#fff}
+.cta{display:flex;gap:10px;flex-wrap:wrap}.btn{border:1px solid var(--line);padding:11px 16px;border-radius:999px;font-size:13px;background:#0b0f15;cursor:pointer}.btn.primary{background:var(--accent);color:#07100d;border-color:var(--accent);font-weight:700}
+section{padding:110px 0;border-top:1px solid rgba(255,255,255,.06)}.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}h2{font:clamp(38px,6vw,76px)/.98 var(--serif);letter-spacing:-.04em;margin:12px 0 20px}h3{margin:0 0 8px;font-size:18px}.lead{max-width:820px;color:#b8c0cb;font-size:19px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}.card{background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:18px;padding:22px;min-height:160px}.card p{color:var(--muted);font-size:14px;margin-bottom:0}.num{font-size:11px;color:var(--accent);letter-spacing:.15em}
+.timeline{margin-top:36px;display:flex;gap:10px;overflow:auto;padding-bottom:8px}.era{min-width:180px;text-align:left;border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:18px;border-radius:15px;cursor:pointer}.era.active{border-color:var(--accent);color:var(--text);background:linear-gradient(145deg,#111d1a,#0e141b)}.era b{display:block;color:inherit;margin-bottom:7px}.era small{font-size:11px}
+.modelbox{margin-top:18px;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:30px;min-height:230px}.modelbox .big{font:38px/1 var(--serif);margin:8px 0 14px}.modelbox p{max-width:760px;color:#aeb8c5}.tags{display:flex;gap:7px;flex-wrap:wrap}.tag{font-size:11px;border:1px solid var(--line);padding:5px 8px;border-radius:99px;color:var(--muted)}
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}.side{padding:30px;border:1px solid var(--line);border-radius:22px;min-height:360px}.side.north{background:linear-gradient(160deg,rgba(140,168,255,.09),transparent)}.side.south{background:linear-gradient(160deg,rgba(143,227,193,.08),transparent)}.side ul{color:var(--muted);padding-left:20px}.arrow{font-size:38px;color:var(--accent);margin:15px 0}
+.flow{display:flex;gap:0;align-items:stretch;overflow:auto;margin-top:35px}.node{min-width:155px;padding:20px;border:1px solid var(--line);background:var(--panel);position:relative}.node:not(:last-child):after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);z-index:2;color:var(--accent);background:var(--bg);padding:0 2px}.node b{font-size:13px}.node span{display:block;color:var(--muted);font-size:12px;margin-top:8px}
+.sliderwrap{margin-top:35px;border:1px solid var(--line);border-radius:22px;padding:28px;background:var(--panel)}input[type=range]{width:100%;accent-color:var(--accent)}.meter{height:12px;background:#1b222c;border-radius:99px;overflow:hidden;margin:22px 0}.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--warm),var(--accent));width:50%;transition:.25s}.quote{font:28px/1.2 var(--serif);max-width:850px;margin:20px 0}.small{font-size:12px;color:var(--muted)}
+.ai-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:34px}.ai{padding:18px;border:1px solid var(--line);border-radius:15px;background:var(--panel);cursor:pointer}.ai.active{border-color:var(--accent2);background:#101725}.ai .ico{font-size:24px;margin-bottom:10px}.ai p{font-size:12px;color:var(--muted)}
+#aiDetail{margin-top:12px}
+.research{display:grid;grid-template-columns:1.3fr .7fr;gap:18px;margin-top:35px}.manifesto{border:1px solid var(--line);border-radius:22px;padding:30px;background:linear-gradient(145deg,#10161e,#0b0e13)}.manifesto p{font:24px/1.4 var(--serif)}.checklist{border:1px solid var(--line);border-radius:22px;padding:26px;background:var(--panel)}.checklist div{padding:12px 0;border-bottom:1px solid var(--line);font-size:13px;color:#b8c0ca}.checklist div:last-child{border:0}
+footer{padding:70px 0;color:var(--muted);font-size:12px}.footline{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;gap:20px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.reveal.show{opacity:1;transform:none}
+@media(max-width:850px){.grid,.ai-grid{grid-template-columns:1fr 1fr}.dual,.research{grid-template-columns:1fr}.hero{min-height:78vh}.navlinks{display:none}}
+@media(max-width:560px){.wrap{width:min(calc(100% - 24px),var(--max))}.grid,.ai-grid{grid-template-columns:1fr}.orbit{width:340px;height:340px}.orbit2{width:500px;height:500px}section{padding:75px 0}h1{font-size:58px}.flow{padding-bottom:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.orbit,.orbit2{animation:none}.reveal{transition:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap navin"><div class="brand">REALITY / DECOMPRESSED</div><div class="navlinks"><a href="#models">Models</a><a href="#power">Power</a><a href="#digital">Digital</a><a href="#ai">AI</a><a href="#research">Research</a></div></div></nav>
+
+<main>
+<section class="hero"><div class="orbit"></div><div class="orbit2"></div><div class="wrap" style="position:relative">
+  <div class="kicker">A cinematic research interface · 01</div>
+  <h1>Who gets to define reality?</h1>
+  <p>From nature and survival to religion, empire, science, capital, digital networks and Artificial Intelligence — human civilization can be read as a history of <strong>models of reality</strong>.</p>
+  <div class="cta"><a class="btn primary" href="#models">Enter the models</a><a class="btn" href="#ai">Jump to AI decompression</a></div>
+</div></section>
+
+<section id="models"><div class="wrap reveal">
+  <div class="eyebrow">02 · The central proposition</div><h2>Civilization is an evolving reality architecture.</h2>
+  <p class="lead">Every society builds ways to select what matters, what is true, who can interpret it, how memory is stored, and who is allowed to act. These architectures become institutions, identities, economies and systems of power.</p>
+  <div class="timeline" id="timeline"></div>
+  <div class="modelbox" id="modelbox"></div>
+</div></section>
+
+<section id="power"><div class="wrap reveal">
+  <div class="eyebrow">03 · Cognitive asymmetry</div><h2>Power begins when one side can define reality for another.</h2>
+  <p class="lead">The central distinction is not “smart people versus less smart people.” It is the unequal distribution of cognitive infrastructure: education, data, institutions, capital, expertise, media, computing and the ability to interpret complexity.</p>
+  <div class="flow">
+    <div class="node"><b>Advantage</b><span>knowledge · resources · technology</span></div>
+    <div class="node"><b>Interpretation</b><span>models · categories · stories</span></div>
+    <div class="node"><b>Institution</b><span>law · school · state · market</span></div>
+    <div class="node"><b>Power</b><span>coordination · extraction · protection</span></div>
+    <div class="node"><b>Compression</b><span>one narrative becomes normal</span></div>
+    <div class="node"><b>Contest</b><span>critique · resistance · alternatives</span></div>
+  </div>
+</div></section>
+
+<section><div class="wrap reveal">
+  <div class="eyebrow">04 · A critical comparison</div><h2>North / South is a historical relationship, not a hierarchy of human worth.</h2>
+  <p class="lead">Environmental pressures, institutions, energy, trade, colonial extraction, disease, geography, technology and political organization interacted differently across regions. The research question is how these conditions produced different <em>modes of collective adaptation</em>.</p>
+  <div class="dual">
+    <div class="side north"><div class="eyebrow">Environmental transformation</div><h3>Transform the environment to survive</h3><div class="arrow">↗</div><ul><li>storage and infrastructure</li><li>engineering and urban systems</li><li>industrial energy</li><li>scientific and military competition</li><li>institutional scaling</li></ul></div>
+    <div class="side south"><div class="eyebrow">Ecological adaptation</div><h3>Adapt to ecological abundance and seasonality</h3><div class="arrow">↘</div><ul><li>agro-ecological knowledge</li><li>river and monsoon adaptation</li><li>local ecological systems</li><li>distributed community knowledge</li><li>resilience under environmental uncertainty</li></ul></div>
+  </div>
+  <p class="small" style="margin-top:16px">Research caution: these are analytical poles, not descriptions of whole continents. Every region contains both adaptation and transformation, cooperation and domination.</p>
+</div></section>
+
+<section id="digital"><div class="wrap reveal">
+  <div class="eyebrow">05 · Digitalization</div><h2>When memory becomes data, the architecture changes.</h2>
+  <p class="lead">Digitization lowers the cost of copying, storing and transmitting knowledge. Networks can weaken traditional gatekeepers while simultaneously creating new platform monopolies. The same infrastructure can decentralize information and centralize attention.</p>
+  <div class="sliderwrap">
+    <div class="eyebrow">Reality compression ↔ decompression</div>
+    <div class="quote" id="quote">A single institution selects what the public sees.</div>
+    <input id="compress" type="range" min="0" max="100" value="28" aria-label="Reality compression level">
+    <div class="meter"><i id="meter"></i></div>
+    <div class="small" id="readout"></div>
+  </div>
+</div></section>
+
+<section id="ai"><div class="wrap reveal">
+  <div class="eyebrow">06 · Artificial Intelligence</div><h2>AI changes the model itself.</h2>
+  <p class="lead">Modern AI systems specialize in different forms of perception, reasoning and action. Your research treats them not only as tools, but as emerging <strong>cognitive infrastructure</strong> that can either compress reality into one authoritative output or decompress it into competing hypotheses, evidence and perspectives.</p>
+  <div class="ai-grid" id="aigrid"></div>
+  <div class="modelbox" id="aiDetail"></div>
+</div></section>
+
+<section id="research"><div class="wrap reveal">
+  <div class="eyebrow">07 · Research architecture</div><h2>From manifesto to testable research.</h2>
+  <div class="research">
+    <div class="manifesto"><p>“The future of civilization may depend less on who possesses the most intelligence than on who controls the infrastructure through which humanity understands reality.”</p><p class="small">Working thesis · Reality Decompression / Civilizational Cognitive Asymmetry</p></div>
+    <div class="checklist">
+      <div>01 — Map historical reality models</div>
+      <div>02 — Compare compression mechanisms</div>
+      <div>03 — Measure cognitive asymmetry</div>
+      <div>04 — Trace digital decentralization</div>
+      <div>05 — Test AI decompression</div>
+      <div>06 — Study governance and access</div>
+      <div>07 — Build plural, evidence-linked models</div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap reveal">
+  <div class="eyebrow">08 · The civilizational loop</div><h2>Reality → cognition → power → technology → new reality.</h2>
+  <div class="flow">
+    <div class="node"><b>Nature</b><span>environmental conditions</span></div>
+    <div class="node"><b>Human observation</b><span>experience and memory</span></div>
+    <div class="node"><b>Reality model</b><span>meaning and prediction</span></div>
+    <div class="node"><b>Institutions</b><span>rules and coordination</span></div>
+    <div class="node"><b>Technology</b><span>extended capability</span></div>
+    <div class="node"><b>Digitalization</b><span>distributed data</span></div>
+    <div class="node"><b>AI</b><span>augmented cognition</span></div>
+    <div class="node"><b>Decompression</b><span>many possible realities</span></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap footline"><span>REALITY / DECOMPRESSED · research prototype</span><span>Humanity is not one model.</span></div></footer>
+
+<script>
+const eras=[
+["01","Nature / Survival","Reality is immediate: weather, hunger, predators, water, seasons and shelter.","Nature Reality","adaptation","ecology","survival"],
+["02","Myth / Ritual","Uncertainty becomes explainable through stories, ancestors, spirits, symbols and ritual.","Mythological Reality","meaning","ritual","memory"],
+["03","Agriculture / Settlement","Cycles of soil, water and food become organized into settlement, property and calendars.","Agrarian Reality","land","season","storage"],
+["04","Kingdom / Empire","Reality becomes hierarchical: ruler, law, taxation, military power and territorial order.","Imperial Reality","authority","territory","bureaucracy"],
+["05","Religious / Philosophical","Reality is interpreted through ethics, metaphysics, revelation, contemplation and reason.","Metaphysical Reality","truth","ethics","consciousness"],
+["06","Scientific / Industrial","Observation, measurement, experimentation and engineering turn reality into something increasingly predictable and transformable.","Scientific Reality","measurement","energy","industry"],
+["07","Colonial / Global","Knowledge, capital, navigation and military power connect regions asymmetrically through empire and extraction.","Imperial-Global Reality","trade","empire","extraction"],
+["08","National / Mass","Citizenship, schooling, newspapers, borders and mass politics create shared national realities.","National Reality","identity","media","state"],
+["09","Digital / Network","Information becomes copyable, searchable and globally transmissible; data becomes infrastructure.","Digital Reality","data","network","platform"],
+["10","AI / Cognitive","Machines can interpret, generate, compare, simulate and act across domains, changing the distribution of cognitive labor.","AI-Augmented Reality","reasoning","agents","models"],
+["11","Planetary / Meta","Humanity faces interconnected ecological, technological and civilizational systems and must compare many models rather than inherit one.","Plural Planetary Reality","systems","plurality","collective intelligence"]
+];
+const tl=document.querySelector("#timeline"),box=document.querySelector("#modelbox");
+function renderEra(i){
+  const e=eras[i];
+  box.innerHTML=`<div class="eyebrow">${e[0]} · ${e[1]}</div><div class="big">${e[3]}</div><p>${e[2]}</p><div class="tags">${e.slice(4).map(x=>`<span class="tag">${x}</span>`).join("")}</div>`;
+  [...tl.children].forEach((x,j)=>x.classList.toggle("active",j===i));
+}
+eras.forEach((e,i)=>{const b=document.createElement("button");b.className="era";b.innerHTML=`<b>${e[1]}</b><small>${e[3]}</small>`;b.addEventListener("click",()=>renderEra(i));tl.appendChild(b)});
+renderEra(0);
+
+const slider=document.querySelector("#compress"),meter=document.querySelector("#meter"),quote=document.querySelector("#quote"),readout=document.querySelector("#readout");
+function updateCompression(){
+ const v=+slider.value; meter.style.width=v+"%";
+ if(v<25){quote.textContent="Many perspectives remain visible; the model exposes uncertainty and alternatives.";readout.textContent="Low compression · plural evidence · competing hypotheses · high interpretive space"}
+ else if(v<60){quote.textContent="Institutions select, rank and simplify reality so people can act at scale.";readout.textContent="Medium compression · useful abstraction · institutional filters · partial visibility"}
+ else{quote.textContent="A narrow narrative becomes the reality people are expected to inherit.";readout.textContent="High compression · authority · simplification · narrative control · reduced alternatives"}
+}
+slider.addEventListener("input",updateCompression);updateCompression();
+
+const aiModels=[
+["◌","Language models","Text becomes a navigable map of concepts, arguments, stories and evidence.","Language Reality","GPT · Claude · Gemini · Llama · DeepSeek"],
+["◉","Vision models","Images become structured information: objects, scenes, patterns, documents and visual evidence.","Visual Reality","detection · segmentation · interpretation"],
+["◍","Speech models","Voice becomes data that can be transcribed, translated, synthesized and searched.","Acoustic Reality","speech recognition · synthesis · translation"],
+["▶","Video models","Reality is represented through time, motion, space and generated sequences.","Temporal Reality","generation · prediction · world dynamics"],
+["◇","Reasoning models","Problems become chains of constraints, hypotheses, calculations and plans.","Logical Reality","math · code · planning"],
+["△","World models","AI attempts to model how environments change through time and action.","World Reality","causality · physics · simulation"],
+["✦","Agent systems","The model does not only answer; it plans, uses tools and acts in an environment.","Action Reality","planning · tools · workflows"],
+["∞","Multi-agent systems","Multiple models coordinate, debate, specialize and create collective behavior.","Collective AI Reality","coordination · critique · emergent intelligence"]
+];
+const ag=document.querySelector("#aigrid"),ad=document.querySelector("#aiDetail");
+function renderAI(i){
+ const m=aiModels[i];ad.innerHTML=`<div class="eyebrow">${m[0]} · AI MODEL</div><div class="big">${m[3]}</div><p>${m[2]}</p><div class="tags"><span class="tag">${m[4]}</span><span class="tag">human oversight</span><span class="tag">epistemic risk</span></div>`;
+ [...ag.children].forEach((x,j)=>x.classList.toggle("active",j===i));
+}
+aiModels.forEach((m,i)=>{const b=document.createElement("button");b.className="ai";b.innerHTML=`<div class="ico">${m[0]}</div><h3>${m[1]}</h3><p>${m[2]}</p>`;b.addEventListener("click",()=>renderAI(i));ag.appendChild(b)});
+renderAI(0);
+
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(x=>obs.observe(x));
+</script>
+</body>
+</html>
